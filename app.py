@@ -4,7 +4,15 @@ import requests
 from datetime import date
 import time
 import os
+import json
 from flask_cors import CORS
+from fred import Fred
+import pandas as pd
+
+
+#INIT THE CLIENT
+API_KEY = os.environ.get('FRED_API_KEY')
+fr = Fred(api_key=API_KEY,response_type='json')
 
 #creates instance of app
 app = Flask(__name__)
@@ -17,12 +25,12 @@ def pingroute():
     return 'OK'    
 
 @app.route("/retrievedata")
-def pingroute():
+def retrieveData():
 
-    return 'Data structure'    
+    return(fr.category.details(97))
 
 @app.route("/fredsearch")
-def pingroute():
+def fredsearch():
 
     return 'Search results'    
 
