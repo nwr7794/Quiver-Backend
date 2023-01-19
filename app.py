@@ -16,6 +16,16 @@ def pingroute():
 
     return 'OK'    
 
+@app.route("/retrievedata")
+def pingroute():
+
+    return 'Data structure'    
+
+@app.route("/fredsearch")
+def pingroute():
+
+    return 'Search results'    
+
 #instantiate app
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
